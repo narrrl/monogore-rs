@@ -5,7 +5,7 @@ use uwuifier::uwuify_str_sse;
 ///
 /// UwUifies given text
 ///
-#[poise::command(slash_command, prefix_command, track_edits)]
+#[poise::command(slash_command, prefix_command, track_edits, category = "general")]
 pub async fn uwu(
     ctx: Context<'_>,
     #[description = "Text that gets uwuified"] content: String,
