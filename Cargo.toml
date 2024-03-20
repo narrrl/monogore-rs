@@ -8,6 +8,7 @@ edition = "2021"
 [dependencies]
 poise = "0.6"
 uwuify = "0.2.2"
+warframestat-rs = { git = "https://github.com/narrrl/warframestat-rs.git", branch = "main"}
 
 [dependencies.tokio]
 version = "1.36"

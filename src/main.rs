@@ -1,9 +1,6 @@
 use commands::*;
-use core::warframe::WarframeAPI;
 use poise::serenity_prelude as serenity;
-
-use std::sync::Arc;
-use tokio::sync::Mutex;
+use warframestat_rs::WarframeClient;
 
 ///
 /// Command modules
@@ -19,7 +16,7 @@ mod core;
 /// Stores data that can be accessed by any command
 ///
 pub struct Data {
-    pub warframe_api: Arc<Mutex<WarframeAPI>>,
+    pub warframe: WarframeClient,
 }
 
 pub type Error = Box<dyn std::error::Error + Send + Sync>;
@@ -45,7 +42,7 @@ async fn main() -> std::result::Result<(), serenity::Error> {
             Box::pin(async move {
                 poise::builtins::register_globally(ctx, &framework.options().commands).await?;
                 Ok(Data {
-                    warframe_api: Arc::new(Mutex::new(WarframeAPI::new())),
+                    warframe: WarframeClient::new(),
                 })
             })
         })

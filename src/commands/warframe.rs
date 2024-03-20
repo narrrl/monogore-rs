@@ -8,6 +8,5 @@ pub async fn riven(
     ctx: Context<'_>,
     #[description = "the riven you are searching for"] riven_name: String,
 ) -> Result<()> {
-    let warframe_api = ctx.data().warframe_api.lock().await;
     Ok(())
 }
